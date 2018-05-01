@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>default</key>
+	<dict>
+		<key>imgBundle</key>
+		<string>Skin1</string>
+		<key>themeColor</key>
+		<string>303030</string>
+		<key>themeName</key>
+		<string>默认主题</string>
+		<key>color1</key>
+		<string>21EF7H</string>
+		<key>color2</key>
+		<string>111111</string>
+		<key>color3</key>
+		<string>003300</string>
+		<key>image1</key>
+		<string>icon1</string>
+		<key>image2</key>
+		<string>icon2</string>
+	</dict>
+	<key>skinKey2</key>
+	<dict>
+		<key>imgBundle</key>
+		<string>Skin2</string>
+		<key>themeColor</key>
+		<string>305EFD</string>
+		<key>themeName</key>
+		<string>主题2</string>
+		<key>color1</key>
+		<string>ABABAB</string>
+		<key>color2</key>
+		<string>444423</string>
+		<key>color3</key>
+		<string>1010FF</string>
+		<key>image1</key>
+		<string>icon1</string>
+		<key>image2</key>
+		<string>icon2</string>
+	</dict>
+</dict>
+</plist>
