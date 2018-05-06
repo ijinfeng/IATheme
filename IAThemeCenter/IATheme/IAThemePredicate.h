@@ -52,4 +52,6 @@ typedef NS_ENUM(int, IAKey) {
                      sel:(SEL)sel
                      key:(NSString *)key;
 
+- (BOOL)isObjectReleased;
+
 @end

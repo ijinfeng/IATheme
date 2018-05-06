@@ -12,6 +12,8 @@
 		3728CB29208B40F300CB3B91 /* UIView+IATheme.m in Sources */ = {isa = PBXBuildFile; fileRef = 3728CB28208B40F300CB3B91 /* UIView+IATheme.m */; };
 		3728CB31208B75AC00CB3B91 /* IAThemeFileHandler.m in Sources */ = {isa = PBXBuildFile; fileRef = 3728CB2D208B75AC00CB3B91 /* IAThemeFileHandler.m */; };
 		3728CB35208B75F100CB3B91 /* IAThemeManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 3728CB33208B75F100CB3B91 /* IAThemeManager.m */; };
+		372A444E209F1EAB00C4A877 /* IASecondViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 372A444D209F1EAB00C4A877 /* IASecondViewController.m */; };
+		372A4451209F336E00C4A877 /* IAView.m in Sources */ = {isa = PBXBuildFile; fileRef = 372A4450209F336E00C4A877 /* IAView.m */; };
 		372EE1252090DE890073DADB /* IAThemeLoadResult.m in Sources */ = {isa = PBXBuildFile; fileRef = 372EE1242090DE890073DADB /* IAThemeLoadResult.m */; };
 		374A6490208391EB00BDF3FC /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 374A648F208391EB00BDF3FC /* AppDelegate.m */; };
 		374A6493208391EB00BDF3FC /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 374A6492208391EB00BDF3FC /* ViewController.m */; };
@@ -41,6 +43,10 @@
 		3728CB30208B75AC00CB3B91 /* IAThemeFileHandler.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IAThemeFileHandler.h; sourceTree = "<group>"; };
 		3728CB33208B75F100CB3B91 /* IAThemeManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IAThemeManager.m; sourceTree = "<group>"; };
 		3728CB34208B75F100CB3B91 /* IAThemeManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IAThemeManager.h; sourceTree = "<group>"; };
+		372A444C209F1EAB00C4A877 /* IASecondViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = IASecondViewController.h; sourceTree = "<group>"; };
+		372A444D209F1EAB00C4A877 /* IASecondViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = IASecondViewController.m; sourceTree = "<group>"; };
+		372A444F209F336E00C4A877 /* IAView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = IAView.h; sourceTree = "<group>"; };
+		372A4450209F336E00C4A877 /* IAView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = IAView.m; sourceTree = "<group>"; };
 		372EE1232090DE890073DADB /* IAThemeLoadResult.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = IAThemeLoadResult.h; sourceTree = "<group>"; };
 		372EE1242090DE890073DADB /* IAThemeLoadResult.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = IAThemeLoadResult.m; sourceTree = "<group>"; };
 		374A648B208391EB00BDF3FC /* IAThemeCenter.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = IAThemeCenter.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -119,8 +125,12 @@
 				374A648F208391EB00BDF3FC /* AppDelegate.m */,
 				374A6491208391EB00BDF3FC /* ViewController.h */,
 				374A6492208391EB00BDF3FC /* ViewController.m */,
+				372A444C209F1EAB00C4A877 /* IASecondViewController.h */,
+				372A444D209F1EAB00C4A877 /* IASecondViewController.m */,
 				3E985176208F52E500260C06 /* IATableViewCell.h */,
 				3E985177208F52E500260C06 /* IATableViewCell.m */,
+				372A444F209F336E00C4A877 /* IAView.h */,
+				372A4450209F336E00C4A877 /* IAView.m */,
 				3E985178208F52E500260C06 /* IATableViewCell.xib */,
 				374A64A42083921700BDF3FC /* IATheme */,
 				374A64A92083933C00BDF3FC /* Skin1.bundle */,
@@ -236,9 +246,11 @@
 				374A64B12083953500BDF3FC /* IAThemeHelper.m in Sources */,
 				3728CB29208B40F300CB3B91 /* UIView+IATheme.m in Sources */,
 				3E985179208F52E500260C06 /* IATableViewCell.m in Sources */,
+				372A444E209F1EAB00C4A877 /* IASecondViewController.m in Sources */,
 				3728CB35208B75F100CB3B91 /* IAThemeManager.m in Sources */,
 				37282A0D208E36C10038109E /* IAThemePredicate.m in Sources */,
 				372EE1252090DE890073DADB /* IAThemeLoadResult.m in Sources */,
+				372A4451209F336E00C4A877 /* IAView.m in Sources */,
 				374A64A72083922A00BDF3FC /* IATheme.m in Sources */,
 				3E985180208F59DD00260C06 /* UIButton+IATheme.m in Sources */,
 				3728CB31208B75AC00CB3B91 /* IAThemeFileHandler.m in Sources */,

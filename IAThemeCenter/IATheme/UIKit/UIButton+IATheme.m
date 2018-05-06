@@ -18,9 +18,10 @@
     predicate.keyValue = key;
     kIAFilterKey(key);
     
+    __weak typeof(self) weakSelf = self;
     [[IAThemeManager sharedManager] loadResourceWithPredicate:predicate load:^(IAThemeLoadResult *result, BOOL loadSuccess) {
         if (loadSuccess) {
-            [self setImage:result.image forState:state];
+            [weakSelf setImage:result.image forState:state];
         }
     }];
 }
@@ -32,9 +33,10 @@
     predicate.keyValue = key;
     kIAFilterKey(key);
     
+    __weak typeof(self) weakSelf = self;
     [[IAThemeManager sharedManager] loadResourceWithPredicate:predicate load:^(IAThemeLoadResult *result, BOOL loadSuccess) {
         if (loadSuccess) {
-            [self setBackgroundImage:result.image forState:state];
+            [weakSelf setBackgroundImage:result.image forState:state];
         }
     }];
 }
@@ -45,9 +47,10 @@
     predicate.keyValue = key;
     kIAFilterKey(key);
     
+    __weak typeof(self) weakSelf = self;
     [[IAThemeManager sharedManager] loadResourceWithPredicate:predicate load:^(IAThemeLoadResult *result, BOOL loadSuccess) {
         if (loadSuccess) {
-            [self setTintColor:result.color];
+            [weakSelf setTintColor:result.color];
         }
     }];
 }

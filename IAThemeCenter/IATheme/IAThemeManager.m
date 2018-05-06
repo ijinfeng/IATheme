@@ -32,7 +32,7 @@
 
 - (void)initWithConfig {
     self.fileHandler = [[IAThemeFileHandler alloc] init];
-    self.resultCallbackMap = [NSMapTable strongToStrongObjectsMapTable];
+    self.resultCallbackMap = [NSMapTable strongToStrongObjectsMapTable];   
 }
 
 - (void)loadTheme {
@@ -107,26 +107,42 @@
 - (void)loadResourceWithPredicate:(IAThemePredicate *)predicate load:(IALoadComplication)complication {
     IAThemeLoadResult *result = [self resultWithPredicate:predicate];
     if (complication) {
-        for (IAThemePredicate *filter in self.resultCallbackMap.objectEnumerator) {
+        NSMutableArray *releasedObjects = [NSMutableArray array];
+        BOOL isRepeat = NO;
+        
+        for (IAThemePredicate *filter in self.resultCallbackMap.keyEnumerator) {
+            // 收集被释放掉的皮肤管理对象
+            if ([filter isObjectReleased]) {
+                [releasedObjects addObject:filter];
+                continue;
+            }
+            // 过滤掉重复的换肤对象
             if ([filter.filter isEqual:predicate.filter]) {
-                return;
+                isRepeat = YES;
             }
         }
-        complication(result, result ? YES : NO);
-        [self.resultCallbackMap setObject:predicate forKey:complication];
+        // 皮肤管理对象已被释放,需要移除回调代理,释放内存
+        for (IAThemePredicate *predicate in releasedObjects) {
+            [self.resultCallbackMap removeObjectForKey:predicate];
+        }
+        
+        if (!isRepeat) {
+            complication(result, result ? YES : NO);
+            [self.resultCallbackMap setObject:complication forKey:predicate];
+        }
     }
 }
 
 - (void)switchThemeWithKey:(NSString *)key {
     self.theme = [self themeWithKey:key];
     [self.fileHandler saveTheme:self.theme];
-
-    for (IALoadComplication complicaiton in self.resultCallbackMap.keyEnumerator) {
-        if (!complicaiton) continue;
+    
+    for (IAThemePredicate *predicate in self.resultCallbackMap.keyEnumerator) {
+        IALoadComplication complication = [self.resultCallbackMap objectForKey:predicate];
+        if (!complication) continue;
         
-        IAThemePredicate *predicate = [self.resultCallbackMap objectForKey:complicaiton];
         IAThemeLoadResult *result = [self resultWithPredicate:predicate];
-        complicaiton(result, result ? YES : NO);
+        complication(result, result ? YES : NO);
     }
 }
 

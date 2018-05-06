@@ -6,6 +6,7 @@
 //  Copyright © 2018年 IA.Alter.com. All rights reserved.
 //
 //  1、在使用前请先配置 IAThemeDefines.h 的默认主题‘defaultThemeKey’
+//  2、注意在编写自定义的 ‘loadResourceWithPredicate:’ 方法时,注意防止 ‘complication’ 强引用 UIView 对象,防止释放不掉而导致内存增大
 
 #import <Foundation/Foundation.h>
 #import "IAThemeLoadResult.h"

@@ -13,6 +13,7 @@
 #import "IATableViewCell.h"
 #import "UIImageView+IATheme.h"
 #import "UIButton+IATheme.h"
+#import "IASecondViewController.h"
 
 @interface ViewController ()<UITableViewDelegate, UITableViewDataSource>
 
@@ -31,7 +32,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    
+    self.title = [IAThemeManager sharedManager].theme.themeName;
     self.items = @[@"颜色 color1",@"颜色 color2",@"颜色 color3", @"主题色"];
     
     [self.tableView registerNib:[UINib nibWithNibName:@"IATableViewCell" bundle:nil] forCellReuseIdentifier:@"cell_id"];
@@ -51,6 +52,7 @@
 
 - (void)actionForButton:(id)sender {
     self.button.selected = !self.button.selected;
+    
 }
 
 #pragma mark - delegate
@@ -86,13 +88,20 @@
     UIAlertController *alert = [UIAlertController alertControllerWithTitle:nil message:nil preferredStyle:UIAlertControllerStyleActionSheet];
     UIAlertAction *defaultAction = [UIAlertAction actionWithTitle:@"默认主题" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
         [[IAThemeManager sharedManager] switchSystemTheme];
+        self.title = [IAThemeManager sharedManager].theme.themeName;
     }];
     UIAlertAction *skin2Action = [UIAlertAction actionWithTitle:@"主题 - skin2" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
          [[IAThemeManager sharedManager] switchThemeWithKey:@"skinKey2"];
+        self.title = [IAThemeManager sharedManager].theme.themeName;
     }];
     [alert addAction:defaultAction];
     [alert addAction:skin2Action];
     [self presentViewController:alert animated:YES completion:nil];
+}
+
+- (IBAction)actionForJump:(id)sender {
+    IASecondViewController *second = [[IASecondViewController alloc] init];
+    [self.navigationController pushViewController:second animated:YES];
 }
 
 @end

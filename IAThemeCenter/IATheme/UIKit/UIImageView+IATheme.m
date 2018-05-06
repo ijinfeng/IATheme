@@ -17,9 +17,10 @@
     predicate.keyValue = key;
     kIAFilterKey(key);
     
+    __weak typeof(self) weakSelf = self;
     [[IAThemeManager sharedManager] loadResourceWithPredicate:predicate load:^(IAThemeLoadResult *result, BOOL loadSuccess) {
         if (loadSuccess) {
-            self.image = result.image;
+            weakSelf.image = result.image;
         }
     }];
 }

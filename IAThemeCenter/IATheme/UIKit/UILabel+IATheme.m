@@ -18,9 +18,10 @@
     predicate.keyValue = key;
     kIAFilterKey(key);
     
+    __weak typeof(self) weakSelf = self;
     [[IAThemeManager sharedManager] loadResourceWithPredicate:predicate load:^(IAThemeLoadResult *result, BOOL loadSuccess) {
         if (loadSuccess) {
-            self.textColor = result.color;
+            weakSelf.textColor = result.color;
         }
     }];
 }

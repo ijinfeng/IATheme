@@ -12,6 +12,8 @@
 
 @property (nonatomic, strong) IAThemeFilter *filter;
 
+@property (nonatomic, weak) id delegate;
+
 @end
 
 @implementation IAThemePredicate
@@ -21,15 +23,24 @@
     predicate.sourceType = self.sourceType;
     predicate.key = self.key;
     predicate.keyValue = self.keyValue;
+    predicate.delegate = self.delegate;
     return predicate;
 }
 
 - (void)filterWithObject:(id)object sel:(SEL)sel key:(NSString *)key {
+    _delegate = object;
+    
     IAThemeFilter *filter = [[IAThemeFilter alloc] initWithObject:object sel:sel key:key];
     self.filter = filter;
 }
 
+
+- (BOOL)isObjectReleased {
+    return self.delegate ? NO : YES;
+}
+
 @end
+
 
 @implementation IAThemeFilter
 

@@ -16,9 +16,11 @@
     predicate.sourceType = IASourceTypeColor;
     predicate.key = IAKeyDefault;
     kIAFilterKey(nil);
+    
+    __weak typeof(self) weakSelf = self;
     [[IAThemeManager sharedManager] loadResourceWithPredicate:predicate load:^(IAThemeLoadResult *result, BOOL loadSuccess) {
         if (loadSuccess) {
-            self.backgroundColor = result.color;
+            weakSelf.backgroundColor = result.color;
         }
     }];
 }
@@ -30,9 +32,10 @@
     predicate.keyValue = key;
     kIAFilterKey(key);
     
+    __weak typeof(self) weakSelf = self;
     [[IAThemeManager sharedManager] loadResourceWithPredicate:predicate load:^(IAThemeLoadResult *result, BOOL loadSuccess) {
         if (loadSuccess) {
-            self.backgroundColor = result.color;
+            weakSelf.backgroundColor = result.color;
         }
     }];
 }
